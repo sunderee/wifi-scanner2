@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Product colors (primary + secondary with their variants)  -->
+    <color name="colorProductPrimary">#FF6C91BF</color>
+    <color name="colorProductPrimaryVariant">#FF4F74A9</color>
+    <color name="colorProductSecondary">#FF587291</color>
+    <color name="colorProductSecondaryVariant">#FF3D5574</color>
+
+    <!--  Background colors (used both for scaffold and surfaces)  -->
+    <color name="colorBackgroundLight">#FFFAFAFA</color>
+    <color name="colorBackgroundDark">#FF3D4856</color>
+
+    <!--  Text colors  -->
+    <color name="colorTextLight">#FFFFFFFF</color>
+    <color name="colorTextDark">#FF121212</color>
+</resources>
