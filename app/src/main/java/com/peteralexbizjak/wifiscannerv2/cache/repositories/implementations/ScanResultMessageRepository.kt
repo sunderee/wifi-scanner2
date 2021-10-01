@@ -10,9 +10,9 @@ internal class ScanResultMessageRepository(
     private val dataStoreInstance: DataStore<ScanResultMessage>
 ) : IScanResultMessageRepository {
     override suspend fun storeScanResult(scanResults: List<ScanResult>) {
-        flush()
         dataStoreInstance.updateData {
             it.toBuilder()
+                .clear()
                 .addAllScanResultMessageData(
                     scanResults.map { scanResult ->
                         ScanResultMessage.ScanResultMessageData.newBuilder().apply {
@@ -40,10 +40,6 @@ internal class ScanResultMessageRepository(
 
     override suspend fun retrieveScanResultMessages(): ScanResultMessage? {
         return dataStoreInstance.data.firstOrNull()
-    }
-
-    override suspend fun flush() {
-        dataStoreInstance.updateData { it.toBuilder().clear().build() }
     }
 
     private fun convertFrequencyToChannel(frequency: Int): Int = when (frequency) {
