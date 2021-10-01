@@ -20,6 +20,7 @@ internal fun HomeScreen(
     scanViewModel: ScanViewModel
 ) {
     val scanViewModelState = scanViewModel.observeScanResultData().observeAsState().value
+
     Scaffold(
         topBar = {
             TopAppBar(
