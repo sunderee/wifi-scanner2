@@ -30,7 +30,7 @@ internal fun ContentError(
             modifier = Modifier.padding(top = 8.dp)
         )
         Text(
-            text = "Fatal application error",
+            text = errorMessage,
             style = MaterialTheme.typography.body2,
         )
     }

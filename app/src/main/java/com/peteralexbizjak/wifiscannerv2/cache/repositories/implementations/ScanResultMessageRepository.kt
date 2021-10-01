@@ -38,7 +38,8 @@ internal class ScanResultMessageRepository(
     }
 
     override suspend fun retrieveScanResultMessages(): ScanResultMessage? {
-        return dataStoreInstance.data.firstOrNull()
+        val data = dataStoreInstance.data.firstOrNull()
+        return data
     }
 
     private fun convertFrequencyToChannel(frequency: Int): Int = when (frequency) {

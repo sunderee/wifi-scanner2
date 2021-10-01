@@ -1,6 +1,7 @@
 package com.peteralexbizjak.wifiscannerv2.viewmodels
 
 import android.net.wifi.ScanResult
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
