@@ -1,4 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wi-Fi Scanner</string>
     <string name="loading">Scanning in progress</string>
 </resources>

@@ -29,7 +29,6 @@ internal class ScanResultMessageRepository(
                             )
                             frequency = scanResult.frequency
                             channelNumber = convertFrequencyToChannel(scanResult.frequency)
-                            channelWidth = scanResult.channelWidth
                             signalLevel = scanResult.level
                         }.build()
                     }
