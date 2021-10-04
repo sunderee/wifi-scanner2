@@ -13,12 +13,11 @@ import com.peteralexbizjak.wifiscannerv2.ui.screens.widgets.state.ContentLoaded
 import com.peteralexbizjak.wifiscannerv2.ui.screens.widgets.state.ContentLoading
 import com.peteralexbizjak.wifiscannerv2.viewmodels.DataContainer
 import com.peteralexbizjak.wifiscannerv2.viewmodels.ScanViewModel
+import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterialApi
 @Composable
-internal fun HomeScreen(
-    scanViewModel: ScanViewModel
-) {
+internal fun HomeScreen(scanViewModel: ScanViewModel = getViewModel<ScanViewModel>()) {
     val scanViewModelState = scanViewModel.observeScanResultData().observeAsState().value
 
     Scaffold(
@@ -33,12 +32,7 @@ internal fun HomeScreen(
             } else {
                 when (scanViewModelState) {
                     is DataContainer.Success -> {
-                        ContentLoaded(
-                            scanMessageData = scanViewModelState
-                                .data
-                                .scanResultMessageDataList
-                                ?.toList() ?: emptyList()
-                        )
+                        ContentLoaded(scanMessageData = scanViewModelState.data)
                     }
                     is DataContainer.Error -> {
                         ContentError(
