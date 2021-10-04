@@ -75,6 +75,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun wifiScanningAction() {
         val intentFilter = IntentFilter()
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
@@ -83,6 +84,9 @@ class MainActivity : ComponentActivity() {
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
         registerReceiver(wifiService, intentFilter)
 
+        // Although this method was deprecated in API level 28, it currently still seems to work on
+        // Android 11 (API level 31). I can't seem to find anything in the official documentation
+        // explaining what the alternatives will be, if there will be some at all...
         val success = wifiManager.startScan()
         if (!success) {
             scanViewModel.setErroneousScanResult("Could not start scanning")
