@@ -22,7 +22,12 @@ internal fun ScanResultTile(model: ScanResult) {
         },
         secondaryText = {
             Column {
-                Text(model.capabilities.replace("[", "").replace("]", ""))
+                Text(
+                    model.capabilities.split("][")
+                        .joinToString(", ") {
+                            it.replace("[", "").replace("]", "")
+                        }
+                )
                 Text("Channel number: #${convertFrequencyToChannel(model.frequency)} (${model.frequency} MHz)")
             }
         }
